@@ -1,0 +1,7 @@
+{
+  "name": "ha-tide-card",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Home Assistant card for tide-card/v1 tide documents"
+}

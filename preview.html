@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tide card preview</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #e8eef2; }
+    .wrap { display: flex; gap: 24px; align-items: flex-start; padding: 24px; flex-wrap: wrap; }
+    .phone { width: 390px; }
+    h2 { margin: 0 0 8px; font-size: 0.85rem; font-weight: 650; color: #445; }
+    .dark {
+      background: #111318;
+      color: #e8eaed;
+      --primary-text-color: #e8eaed;
+      --secondary-text-color: #a8b0b8;
+      --card-background-color: #1c1f26;
+      --ha-card-background: #1c1f26;
+      --secondary-background-color: #2a3140;
+      --divider-color: rgba(255, 255, 255, 0.08);
+      --primary-color: #8ab4f8;
+      --text-primary-color: #111;
+    }
+    ha-card, .dark ha-card { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); border-radius: 16px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="cell phone"><h2>Full</h2><div id="full"></div></div>
+    <div class="cell phone"><h2>Minimal</h2><div id="minimal"></div></div>
+    <div class="cell phone"><h2>Wave only</h2><div id="graph"></div></div>
+    <div class="cell phone"><h2>Table only</h2><div id="table"></div></div>
+  </div>
+  <script type="module">
+    import "./tide-card.js";
+
+    const sample = await (await fetch("./sample.json")).json();
+    const hass = {
+      states: {
+        "sensor.tide_data": {
+          state: "Low 0.8 m at 13:21 · High 2.9 m at 19:31",
+          attributes: sample,
+        },
+      },
+    };
+    const hidden = {
+      show_header: false,
+      show_since: false,
+      show_now: false,
+      show_trend: false,
+      show_next_low: false,
+      show_next_high: false,
+      show_days: false,
+      show_graph: false,
+      show_labels: false,
+      show_table: false,
+      show_updated: false,
+    };
+    const cards = {
+      full: { entity: "sensor.tide_data" },
+      minimal: { entity: "sensor.tide_data", minimal: true },
+      graph: { entity: "sensor.tide_data", ...hidden, show_graph: true, show_labels: true },
+      table: { entity: "sensor.tide_data", ...hidden, show_days: true, show_table: true },
+    };
+    for (const [id, config] of Object.entries(cards)) {
+      const card = document.createElement("tide-card");
+      card.setConfig(config);
+      card.hass = hass;
+      document.getElementById(id).appendChild(card);
+    }
+    document.querySelector("#table tide-card").shadowRoot.querySelector('[data-day="2026-11-11"]').click();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "schema": "tide-card/v1",
+  "location": "Weiti River Entrance",
+  "timezone": "Pacific/Auckland",
+  "unit": "m",
+  "updated": "2026-11-08T09:00:00+13:00",
+  "range": { "min": 0.6, "max": 3.0 },
+  "extrema": [
+    { "time": "2026-11-08T01:00:00+13:00", "height": 0.7, "type": "low" },
+    { "time": "2026-11-08T07:21:00+13:00", "height": 2.9, "type": "high" },
+    { "time": "2026-11-08T13:21:00+13:00", "height": 0.8, "type": "low" },
+    { "time": "2026-11-08T19:31:00+13:00", "height": 2.9, "type": "high" },
+    { "time": "2026-11-09T01:46:00+13:00", "height": 0.7, "type": "low" },
+    { "time": "2026-11-09T08:07:00+13:00", "height": 3.0, "type": "high" },
+    { "time": "2026-11-09T14:05:00+13:00", "height": 0.8, "type": "low" },
+    { "time": "2026-11-09T20:16:00+13:00", "height": 2.9, "type": "high" },
+    { "time": "2026-11-10T02:32:00+13:00", "height": 0.6, "type": "low" },
+    { "time": "2026-11-10T08:53:00+13:00", "height": 3.0, "type": "high" },
+    { "time": "2026-11-10T14:50:00+13:00", "height": 0.7, "type": "low" },
+    { "time": "2026-11-10T21:02:00+13:00", "height": 2.9, "type": "high" },
+    { "time": "2026-11-11T03:18:00+13:00", "height": 0.6, "type": "low" },
+    { "time": "2026-11-11T09:39:00+13:00", "height": 2.9, "type": "high" },
+    { "time": "2026-11-11T15:36:00+13:00", "height": 0.8, "type": "low" },
+    { "time": "2026-11-11T21:48:00+13:00", "height": 2.8, "type": "high" }
+  ]
+}
